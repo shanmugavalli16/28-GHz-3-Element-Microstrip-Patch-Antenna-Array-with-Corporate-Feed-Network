@@ -3,7 +3,7 @@
 Design and simulation of a **3-element linear microstrip patch antenna array** for **5G mmWave (28 GHz)** using **Ansys HFSS**. The array is fed from a single 50 Ω port through a **corporate (parallel) feed network** with impedance-stepped microstrip lines that splits the power equally between the three patches. Before choosing the feed, the effect of **uniform, binomial and Chebyshev amplitude distributions** on the radiation pattern was studied to decide what the feed network must deliver.
 
 <p align="center">
-  <img src="images/design/dimensioned_layout.png" width="70%"><br>
+  <img src="design/dimensioned_layout.png" width="70%"><br>
   <em>Final HFSS model – 3 inset-fed patches connected through the corporate feed network (top view)</em>
 </p>
 
@@ -99,12 +99,12 @@ The difference between analytical and final values is expected: the analytical m
 All dimensions are the HFSS design variables of the final array model.
 
 <p align="center">
-  <img src="images/design/dimensioned_layout.png" width="95%"><br>
+  <img src="design/dimensioned_layout.png" width="95%"><br>
   <em>Dimensioned top view of the final array (all lengths in mm) with the inset-feed detail</em>
 </p>
 
 <p align="center">
-  <img src="images/design/hfss_design_variables.png" width="75%"><br>
+  <img src="design/hfss_design_variables.png" width="75%"><br>
   <em>HFSS local variables of the final array (design <code>patch_28Ghz_3corporate_sidelobe</code>)</em>
 </p>
 
@@ -151,34 +151,34 @@ Three line impedances are used in the network:
 
 | Stage | What was done | Output |
 |---|---|---|
-| 1. Single patch | Analytical design (Section 3), inset feed, HFSS simulation | [`images/single_element/`](images/single_element) |
-| 2. Two-element array | Two patches, one port each – S11 / S22 at 28 GHz | [`images/two_element/`](images/two_element) |
-| 3. Three-element array, independent ports | Three patches, one port each – S11 / S22 / S33 | [`images/three_element_ports/`](images/three_element_ports) |
-| 4. Amplitude distribution study | Uniform, binomial and Chebyshev weights applied through *HFSS → Fields → Edit Sources* | [`images/amplitude_distribution/`](images/amplitude_distribution) |
-| 5. Corporate feed network | Single 50 Ω port, 100 Ω branches, ≈ 70 Ω section, uniform in-phase excitation | [`images/design/`](images/design), [`images/results/`](images/results) |
-| 6. Extension | Exploratory 2×2 planar array | [`images/planar_2x2/`](images/planar_2x2) |
+| 1. Single patch | Analytical design (Section 3), inset feed, HFSS simulation | [`Analysis/1-2-3-element_analysis/single_element/`](Analysis/1-2-3-element_analysis/single_element) |
+| 2. Two-element array | Two patches, one port each – S11 / S22 at 28 GHz | [`Analysis/1-2-3-element_analysis/two_element/`](Analysis/1-2-3-element_analysis/two_element) |
+| 3. Three-element array, independent ports | Three patches, one port each – S11 / S22 / S33 | [`Analysis/1-2-3-element_analysis/three_element/`](Analysis/1-2-3-element_analysis/three_element) |
+| 4. Amplitude distribution study | Uniform, binomial and Chebyshev weights applied through *HFSS → Fields → Edit Sources* | [`Analysis/amplitude_distribution/`](images/amplitude_distribution) |
+| 5. Corporate feed network | Single 50 Ω port, 100 Ω branches, ≈ 70 Ω section, uniform in-phase excitation | [`design`](design), [`results/`](results) |
+| 6. Extension | Exploratory 2×2 planar array | [`Analysis/planar_2x2/`](Analysis/planar_2x2) |
 
 ### Single patch (unit cell)
 
 <p align="center">
-  <img src="images/single_element/model_3d.png" width="40%">
-  <img src="images/single_element/radiation_pattern_rE.png" width="45%"><br>
+  <img src="Analysis/1-2-3-element_analysis/single_element/model_3d.png" width="40%">
+  <img src="Analysis/1-2-3-element_analysis/single_element/radiation_pattern_rE.png" width="45%"><br>
   <em>Single inset-fed patch at 28 GHz and its radiation pattern</em>
 </p>
 
 ### Two-element array
 
 <p align="center">
-  <img src="images/two_element/model_3d.png" width="38%">
-  <img src="images/two_element/s_parameters.png" width="55%"><br>
+  <img src="Analysis/1-2-3-element_analysis/two_element/model_3d.png" width="38%">
+  <img src="Analysis/1-2-3-element_analysis/two_element/s_parameters.png" width="55%"><br>
   <em>Two-element array with independent ports – S11 and S22 show the resonance near 28 GHz (≈ −27 to −29 dB)</em>
 </p>
 
 ### Three-element array with independent ports
 
 <p align="center">
-  <img src="images/three_element_ports/model_3d.png" width="45%"><br>
-  <img src="images/three_element_ports/s_parameters.png" width="70%"><br>
+  <img src="Analysis/1-2-3-element_analysis/three_element/model_3d.png" width="45%"><br>
+  <img src="Analysis/1-2-3-element_analysis/three_element/s_parameters.png" width="70%"><br>
   <em>Three-element array with one port per patch – S11, S22 and S33 all resonate near 28.1 GHz (≈ −27 to −31 dB)</em>
 </p>
 
@@ -199,33 +199,33 @@ With one port per patch, different amplitude weights were applied in *HFSS → F
 ### 7.1 Uniform distribution (1 : 1 : 1)
 
 <p align="center">
-  <img src="images/amplitude_distribution/uniform/edit_sources.png" width="30%">
-  <img src="images/amplitude_distribution/uniform/gain_3d.png" width="30%">
-  <img src="images/amplitude_distribution/uniform/directivity_3d.png" width="30%"><br>
-  <img src="images/amplitude_distribution/uniform/radiation_pattern_rE.png" width="40%">
-  <img src="images/amplitude_distribution/uniform/gain_polar.png" width="45%"><br>
+  <img src="Analysis/amplitude_distribution/uniform/edit_sources.png" width="30%">
+  <img src="Analysis/amplitude_distribution/uniform/gain_3d.png" width="30%">
+  <img src="Analysis/amplitude_distribution/uniform/directivity_3d.png" width="30%"><br>
+  <img src="Analysis/amplitude_distribution/uniform/radiation_pattern_rE.png" width="40%">
+  <img src="Analysis/amplitude_distribution/uniform/gain_polar.png" width="45%"><br>
   <em>Edit-sources table · 3D gain · 3D directivity · radiation pattern (rE) · gain polar plot</em>
 </p>
 
 ### 7.2 Binomial distribution (1 : 2 : 1 amplitude)
 
 <p align="center">
-  <img src="images/amplitude_distribution/binomial/edit_sources.png" width="30%">
-  <img src="images/amplitude_distribution/binomial/gain_3d.png" width="30%">
-  <img src="images/amplitude_distribution/binomial/directivity_3d.png" width="30%"><br>
-  <img src="images/amplitude_distribution/binomial/radiation_pattern_rE.png" width="40%">
-  <img src="images/amplitude_distribution/binomial/gain_polar.png" width="45%"><br>
+  <img src="Analysis/amplitude_distribution/binomial/edit_sources.png" width="30%">
+  <img src="Analysis/amplitude_distribution/binomial/gain_3d.png" width="30%">
+  <img src="Analysis/amplitude_distribution/binomial/directivity_3d.png" width="30%"><br>
+  <img src="Analysis/amplitude_distribution/binomial/radiation_pattern_rE.png" width="40%">
+  <img src="Analysis/amplitude_distribution/binomial/gain_polar.png" width="45%"><br>
   <em>Edit-sources table · 3D gain · 3D directivity · radiation pattern (rE) · gain polar plot</em>
 </p>
 
 ### 7.3 Chebyshev distribution (0.76 : 1 : 0.76 amplitude)
 
 <p align="center">
-  <img src="images/amplitude_distribution/chebyshev/edit_sources.png" width="30%">
-  <img src="images/amplitude_distribution/chebyshev/gain_3d.png" width="30%">
-  <img src="images/amplitude_distribution/chebyshev/directivity_3d.png" width="30%"><br>
-  <img src="images/amplitude_distribution/chebyshev/radiation_pattern_rE.png" width="40%">
-  <img src="images/amplitude_distribution/chebyshev/gain_polar.png" width="45%"><br>
+  <img src="Analysis/amplitude_distribution/chebyshev/edit_sources.png" width="30%">
+  <img src="Analysis/amplitude_distribution/chebyshev/gain_3d.png" width="30%">
+  <img src=Analysis/amplitude_distribution/chebyshev/directivity_3d.png" width="30%"><br>
+  <img src="Analysis/amplitude_distribution/chebyshev/radiation_pattern_rE.png" width="40%">
+  <img src="Analysis/amplitude_distribution/chebyshev/gain_polar.png" width="45%"><br>
   <em>Edit-sources table · 3D gain · 3D directivity · radiation pattern (rE) · gain polar plot</em>
 </p>
 
@@ -248,35 +248,35 @@ All results are for the final array of Section 4  with a single 50 Ω input port
 ### 8.1 S-parameter (S11)
 
 <p align="center">
-  <img src="images/results/s11.png" width="80%"><br>
+  <img src="results/s11.png" width="80%"><br>
   <em>S11 – minimum −27.02 dB near 28 GHz; markers m1 = 27.42 GHz and m2 = 28.54 GHz (≈ −10 dB) give a bandwidth of ≈ 1.1 GHz</em>
 </p>
 
 ### 8.2 VSWR
 
 <p align="center">
-  <img src="images/results/vswr.png" width="80%"><br>
+  <img src="results/vswr.png" width="80%"><br>
   <em>VSWR = 1.0988 at 28 GHz</em>
 </p>
 
 ### 8.3 Input impedance (Z-parameter)
 
 <p align="center">
-  <img src="images/results/z_parameter.png" width="80%"><br>
+  <img src="results/z_parameter.png" width="80%"><br>
   <em>|Z11| = 52.92 Ω at 28 GHz – close to the 50 Ω reference</em>
 </p>
 
 ### 8.4 Gain
 
 <p align="center">
-  <img src="images/results/gain_phi0_phi90.png" width="80%"><br>
+  <img src="results/gain_phi0_phi90.png" width="80%"><br>
   <em>Total gain vs θ at 28 GHz: φ = 0° (red, along the array axis – narrow beam) and φ = 90° (green, broad single-element beam). Peak gain ≈ 12.0 dB at broadside.</em>
 </p>
 
 ### 8.5 Directivity
 
 <p align="center">
-  <img src="images/results/directivity_phi0_phi90.png" width="80%"><br>
+  <img src="results/directivity_phi0_phi90.png" width="80%"><br>
   <em>Total directivity vs θ at 28 GHz. Peak directivity ≈ 11.8 dB at broadside.</em>
 </p>
 
@@ -292,10 +292,10 @@ All results are for the final array of Section 4  with a single 50 Ω input port
 A 2×2 planar array (4 ports) was also modelled to explore beam shaping in two dimensions. This is an exploratory extension and not part of the 3-element design above.
 
 <p align="center">
-  <img src="images/planar_2x2/model_3d.png" width="40%">
-  <img src="images/planar_2x2/s_parameters.png" width="55%"><br>
-  <img src="images/planar_2x2/directivity_3d.png" width="35%">
-  <img src="images/planar_2x2/radiation_pattern_rE.png" width="35%"><br>
+  <img src="Analysis/planar_2x2/model_3d.png" width="40%">
+  <img src="Analysis/planar_2x2/s_parameters.png" width="55%"><br>
+  <img src="Analysis/planar_2x2/directivity_3d.png" width="35%">
+  <img src="Analysis/planar_2x2/radiation_pattern_rE.png" width="35%"><br>
   <em>2×2 planar array model · S11–S44 (≈ −30 to −33 dB near 28.08 GHz) · 3D directivity · radiation pattern</em>
 </p>
 
